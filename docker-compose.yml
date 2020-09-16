@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  app:
+    build:
+      context: .
+    ports:
+      - "8080:8080"
+    command: ["java", "-jar", "./gateway-service.jar"]
+    environment:
+      ELASTIC_APM_ENABLED: "true"
+      ELASTIC_APM_SERVICE_NAME: gateway-service
+      ELASTIC_APM_APPLICATION_PACKAGES: com.saly
